@@ -1,0 +1,8 @@
+﻿27.07.2020 18:55:33 F:\Rurik\_projects\C#\Копия Spravka_v_nalogovuyu-01_2020.xls  Row: 10 Column: 4 Value: Евстратов Павел Олегович
+28.07.2020 9:27:11 F:\Rurik\_projects\C#\Копия Spravka_v_nalogovuyu-01_2020.xls  Row: 11 Column: 3 Value: Швагирева Инна Алексеевна
+28.07.2020 9:27:50 F:\Rurik\_projects\C#\Копия Spravka_v_nalogovuyu-01_2020.xls  Row: 12 Column: 3 Value: 
+28.07.2020 9:28:07 F:\Rurik\_projects\C#\Копия Spravka_v_nalogovuyu-01_2020.xls  Row: 11 Column: 4 Value: 
+28.07.2020 9:28:16 F:\Rurik\_projects\C#\Копия Spravka_v_nalogovuyu-01_2020.xls  Row: 7 Column: 3 Value: 473451729664
+28.07.2020 9:35:52 F:\Rurik\_projects\C#\Копия Spravka_v_nalogovuyu-01_2020.xls  Row: 12 Column: 4 Value: 
+28.07.2020 9:36:25 F:\Rurik\_projects\C#\Копия Spravka_v_nalogovuyu-01_2020.xls  Row: 13 Column: 4 Value: 
+02.08.2020 17:52:57 F:\Rurik\_projects\C#\Копия Spravka_v_nalogovuyu-01_2020.xls  Row: 9 Column: 3 Value: 784823895724
