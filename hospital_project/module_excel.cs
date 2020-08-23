@@ -6,10 +6,12 @@ using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
-using GemBox.Spreadsheet;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 /*
-    Project use  Npoi (for .xls/.xlsx) 
-    and ExcelDataReader (for reading .xls,.xlsx) 
+Project use  Npoi (for .xls/.xlsx) 
+and ExcelDataReader (for reading .xls,.xlsx).
+In the future will be used only Interop.Excel;
 */
 
 
@@ -410,9 +412,33 @@ namespace hospital_project
 
         void printMedCert(string filePath)
         {
-            var workbook = ExcelFile.Load(filePath);
+            Excel.Application excelApp = new Excel.Application();
 
-            workbook.Print();
+            Excel.Workbook wb = excelApp.Workbooks.Open(
+                filePath,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+                Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+            // Get the first worksheet.
+            // (Excel uses base 1 indexing, not base 0.)
+            Excel.Worksheet ws = (Excel.Worksheet)wb.Worksheets[2];
+
+            ws.PrintOut(
+            Type.Missing, Type.Missing, Type.Missing, Type.Missing,
+            Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+
+            // Cleanup:
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+
+            Marshal.FinalReleaseComObject(ws);
+
+            wb.Close(false, Type.Missing, Type.Missing);
+            Marshal.FinalReleaseComObject(wb);
+
+            excelApp.Quit();
+            Marshal.FinalReleaseComObject(excelApp);
         }
     }
 }

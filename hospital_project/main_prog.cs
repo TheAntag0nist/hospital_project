@@ -1,8 +1,4 @@
-﻿using GemBox.Spreadsheet;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace hospital_project
@@ -15,7 +11,6 @@ namespace hospital_project
         [STAThread]
         static void Main()
         {
-            SpreadsheetInfo.SetLicense("FREE-LIMITED-KEY");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form2());
