@@ -6,8 +6,7 @@ using NPOI.HSSF.UserModel;
 using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
-using Excel = Microsoft.Office.Interop.Excel;
-using System.Runtime.InteropServices;
+using System.Data.OleDb;
 /*
 Project use  Npoi (for .xls/.xlsx) 
 and ExcelDataReader (for reading .xls,.xlsx).
@@ -412,33 +411,24 @@ namespace hospital_project
 
         void printMedCert(string filePath)
         {
-            Excel.Application excelApp = new Excel.Application();
+            var fileName = filePath;
+            var connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + fileName + ";Extended Properties=\"Excel 12.0;IMEX=1;HDR=NO;TypeGuessRows=0;ImportMixedTypes=Text\""; ;
+            using (var conn = new OleDbConnection(connectionString))
+            {
+                conn.Open();
 
-            Excel.Workbook wb = excelApp.Workbooks.Open(
-                filePath,
-                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-                Type.Missing, Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-                Type.Missing, Type.Missing, Type.Missing, Type.Missing);
+                var sheets = conn.GetOleDbSchemaTable(System.Data.OleDb.OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "SELECT * FROM [" + sheets.Rows[0]["TABLE_NAME"].ToString() + "] ";
 
-            // Get the first worksheet.
-            // (Excel uses base 1 indexing, not base 0.)
-            Excel.Worksheet ws = (Excel.Worksheet)wb.Worksheets[2];
+                    var adapter = new OleDbDataAdapter(cmd);
+                    var ds = new DataSet();
+                    adapter.Fill(ds);
+                }
+            }
 
-            ws.PrintOut(
-            Type.Missing, Type.Missing, Type.Missing, Type.Missing,
-            Type.Missing, Type.Missing, Type.Missing, Type.Missing);
 
-            // Cleanup:
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-
-            Marshal.FinalReleaseComObject(ws);
-
-            wb.Close(false, Type.Missing, Type.Missing);
-            Marshal.FinalReleaseComObject(wb);
-
-            excelApp.Quit();
-            Marshal.FinalReleaseComObject(excelApp);
         }
     }
 }
