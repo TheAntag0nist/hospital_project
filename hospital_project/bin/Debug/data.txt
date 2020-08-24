@@ -1,2 +1,2 @@
-D:\Копия Spravka_v_nalogovuyu-01_2020.xls
+F:\Rurik\_projects\C#\Копия Spravka_v_nalogovuyu-01_2020.xls
 templates\Shablon.xlsx

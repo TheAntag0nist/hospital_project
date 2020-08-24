@@ -32,8 +32,6 @@ F:\Rurik\_projects\C#\hospital_project\hospital_project\bin\Debug\NPOI.OpenXml4N
 F:\Rurik\_projects\C#\hospital_project\hospital_project\bin\Debug\NPOI.OpenXmlFormats.dll
 F:\Rurik\_projects\C#\hospital_project\hospital_project\bin\Debug\BouncyCastle.Crypto.xml
 F:\Rurik\_projects\C#\hospital_project\hospital_project\obj\Debug\hospital_project.Form2.resources
-F:\Rurik\_projects\C#\hospital_project\hospital_project\bin\Debug\GemBox.Spreadsheet.dll
-F:\Rurik\_projects\C#\hospital_project\hospital_project\bin\Debug\GemBox.Spreadsheet.xml
 C:\Users\teoru\_projects\hospital_project\hospital_project\bin\Debug\hospital_project.exe.config
 C:\Users\teoru\_projects\hospital_project\hospital_project\bin\Debug\hospital_project.exe
 C:\Users\teoru\_projects\hospital_project\hospital_project\bin\Debug\hospital_project.pdb
